@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj" />
+    <ProjectReference Include="..\Data.Interfaces\Data.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.Repository\Data.Repository.csproj" />
+    <ProjectReference Include="..\Data.UnitOfWork\Data.UnitOfWork.csproj" />
+    <ProjectReference Include="..\Middleware.Notifications\Middleware.Notifications.csproj" />
+    <ProjectReference Include="..\Middleware.Security\Middleware.Security.csproj" />
+  </ItemGroup>
+
+</Project>
