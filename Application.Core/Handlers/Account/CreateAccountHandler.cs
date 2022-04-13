@@ -3,6 +3,8 @@ using Application.Core.Responses.Account;
 using AutoMapper;
 using Data.Interfaces;
 using Data.UnitOfWork;
+using Domain.Entities.ValueObjects;
+using Domain.Enums;
 using MediatR;
 using Middleware.Notifications;
 
@@ -44,6 +46,10 @@ namespace Application.Core.Handlers.Account
 
             // Transform password into a SHA512
             account.EncryptPassword();
+
+            // Check if LoginType is not zero
+            if ((int)account.Email.LoginType <= 0)
+                account.ChangeEmail(new Email(request.Email.Address, ELoginType.SelfAccount));
 
             var created = await _account.Create(account);
 
